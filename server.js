@@ -30,6 +30,10 @@ app.use(passport.initialize());
 // Passport config
 require('./config/passport.js')(passport);
 
+app.use('/home', (req, res) => {
+  res.json({home:"This will be the home/landing page"});
+});
+
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/post', post);
