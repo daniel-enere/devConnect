@@ -13,7 +13,8 @@ const validateEducationInput = require('../../validation/education');
 // @route   GET api/profile/testProfile
 // @desc    Tests profile route
 // @access  Public
-router.get('/testProfile', (req, res) => res.json({msg: "profile works"}));
+router.get('/testProfile',
+  (req, res) => res.json({msg: "profile works"}));
 
 
 // @route   GET api/profile
@@ -39,7 +40,8 @@ router.get('/',
 // @route   GET api/profile/all
 // @desc    Get all profiles
 // @access Public
-router.get('/all', (req, res) => {
+router.get('/all',
+  (req, res) => {
   const errors = {};
 
   Profile.find()
@@ -60,7 +62,8 @@ router.get('/all', (req, res) => {
 // @route   GET api/profile/handle/:handle
 // @desc    Get profile by handle
 // @access Public
-router.get('/handle/:handle', (req, res) => {
+router.get('/handle/:handle',
+  (req, res) => {
   const errors = {};
 
   Profile.findOne({ handle: req.params.handle })
@@ -79,7 +82,8 @@ router.get('/handle/:handle', (req, res) => {
 // @route   GET api/profile/user/:user_id
 // @desc    Get profile by user ID
 // @access  Public
-router.get('/user/:user_id', (req, res) => {
+router.get('/user/:user_id',
+  (req, res) => {
   const errors = {};
 
   Profile.findOne({ user: req.params.user_id })
@@ -167,7 +171,9 @@ router.post('/',
 // @route    POST api/profile/experience
 // @desc     add an experience
 // @access   Private
-router.post('/experience', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.post('/experience',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
   const { errors, isValid } = validateExperienceInput(req.body);
 
   // Check Validation
@@ -196,7 +202,9 @@ router.post('/experience', passport.authenticate('jwt', { session: false }), (re
 // @route    POST api/profile/education
 // @desc     add education
 // @access   Private
-router.post('/education', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.post('/education',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
   const { errors, isValid } = validateEducationInput(req.body);
 
   // Check Validation
@@ -273,7 +281,8 @@ router.delete('/education/:edu_id',
 // @route   DELETE  /api/profile
 // @desc    delete user and profile accout
 //@access   Private
-router.delete('/', passport.authenticate('jwt', { session: false}),
+router.delete('/',
+  passport.authenticate('jwt', { session: false}),
   (req, res) => {
     Profile.findOneAndRemove({ user: req.user.id })
       .then(() => {

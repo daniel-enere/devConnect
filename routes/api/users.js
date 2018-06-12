@@ -16,14 +16,16 @@ const User = require('../../models/User') //User model
 // @router  GET api/users/test
 // @desc    test users route
 // @access  Public
-router.get('/test', (req, res) => {
+router.get('/test',
+  (req, res) => {
   res.json({msg: "Users works fine"})
 })
 
 // @route GET api/users/register
 // @desc allows for creation of new User
 // @access Public
-router.post('/register', (req, res) => {
+router.post('/register',
+  (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
   // Check validation
@@ -67,7 +69,8 @@ router.post('/register', (req, res) => {
 // @route POST api/users/login
 // @desc login user/ Returning JWT Token
 // @access Private
-router.post('/login', (req, res) => {
+router.post('/login',
+  (req, res) => {
 
   const { errors, isValid } = validateLoginInput(req.body);
 
@@ -120,7 +123,9 @@ router.post('/login', (req, res) => {
 // @route POST api/users/current
 // @desc return current user
 // @access Private
-router.get('/current', passport.authenticate('jwt', { session: false}), (req, res) => {
+router.get('/current',
+  passport.authenticate('jwt', { session: false}),
+  (req, res) => {
   res.json({
     id: req.user.id,
     name: req.user.name,
