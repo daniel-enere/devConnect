@@ -68,11 +68,11 @@ class AddEducation extends Component {
     return (
       <div className="add-education">
         <div className="container">
+          <Link to="/dashboard" className="btn btn-primary">
+            Go Back
+          </Link>
           <div className="row">
             <div className="col-md-8 m-auto">
-              <Link to="/dashboard" className="btn btn-light">
-                Go Back
-              </Link>
               <h1 className="display-4 text-center">
                 Add Education
               </h1>
