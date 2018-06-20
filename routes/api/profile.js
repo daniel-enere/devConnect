@@ -186,6 +186,7 @@ router.post('/experience',
       const newExp = {
         title: req.body.title,
         company: req.body.company,
+        location: req.body.location,
         from: req.body.from,
         to: req.body.to,
         current: req.body.current,
@@ -222,7 +223,6 @@ router.post('/education',
         from: req.body.from,
         to: req.body.to,
         current: req.body.current,
-        description: req.body.description
       }
 
       //Add to exp array

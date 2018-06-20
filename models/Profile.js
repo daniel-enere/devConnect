@@ -48,7 +48,6 @@ const ProfileSchema = new Schema({
       },
       location: {
         type: String,
-        // required: true
       },
       from: {
         type: Date,

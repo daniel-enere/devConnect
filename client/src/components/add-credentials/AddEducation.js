@@ -142,14 +142,14 @@ class AddEducation extends Component {
                     Currently in School
                   </label>
                 </div>
-                <TextAreaFieldGroup
+                {/* <TextAreaFieldGroup
                   placeholder="Program Description"
                   name="description"
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}
                   info="Tell us about your education"
-                />
+                /> */}
                 <input type="submit"
                   value="Submit"
                   className="btn btn-info btn-block mt-4"/>
