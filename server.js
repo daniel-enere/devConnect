@@ -45,7 +45,8 @@ app.use('/api/post', post);
 if(process.env.NODE_ENV === 'production') {
 
   // set static folder
-  app.use(express.static('client/build'));
+  // app.use(express.static('client/build'));
+  app.use('/static', express.static(path.join(__dirname, 'client/build')));
 
   // route
   app.get('*', (req, res ) => {
